@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Daily Meal Plans | Easy Diets</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary: #2d5a27;
+            --accent: #4caf50;
+            --bg-light: #fdfdfd;
+            --text-dark: #2c3e50;
+            --red-offer: #e74c3c;
+            --shadow: rgba(0,0,0,0.08);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-light); color: var(--text-dark); overflow-x: hidden; }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .reveal { animation: fadeInScale 0.8s ease-out forwards; }
+        .pulsate { animation: pulse 2s infinite ease-in-out; }
+        .float { animation: float 3s infinite ease-in-out; }
+
+      
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(rgba(45, 90, 39, 0.9), rgba(45, 90, 39, 0.9)), url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; background-position: center;
+            color: white; padding: 100px 10% 70px; text-align: center;
+        }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.8rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.1rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+
+        /* Plans Grid */
+        .plans-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; padding: 60px 10%;
+        }
+        .plan-card {
+            background: var(--white); padding: 40px; border-radius: 25px;
+            text-align: center; box-shadow: 0 10px 30px var(--shadow);
+            transition: 0.4s; border-top: 5px solid var(--primary);
+            position: relative; overflow: hidden;
+        }
+        .plan-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 18px 40px var(--shadow); }
+        .plan-card h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2rem; margin-bottom: 10px; }
+        .plan-card .tagline { font-weight: 300; color: #666; margin-bottom: 20px; }
+        .plan-card .price-day { font-size: 1.8rem; font-weight: 700; color: var(--red-offer); margin: 15px 0; }
+        .plan-card .price-month { font-size: 1.1rem; color: #888; }
+        .plan-card .food-icon { font-size: 5rem; line-height: 1; margin-bottom: 20px; display: block; } /* For animating emojis */
+
+        /* Why Buy Section */
+        .why-buy { background: var(--bg-light); padding: 70px 10%; text-align: center; }
+        .why-buy h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.5rem; margin-bottom: 40px; }
+        .reasons-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .reason-item {
+            background: white; padding: 30px; border-radius: 20px;
+            box-shadow: 0 8px 25px var(--shadow); text-align: left;
+            border-bottom: 4px solid var(--accent); transition: 0.3s;
+        }
+        .reason-item:hover { transform: translateY(-5px); }
+        .reason-item .icon { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+        .reason-item h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* Mega Combo */
+        .combo-section {
+            background: linear-gradient(135deg, var(--primary) 0%, #1a3c1a 100%);
+            color: white; padding: 80px 10%; text-align: center; border-radius: 40px;
+            margin: 60px 10%; position: relative; overflow: hidden;
+        }
+        .combo-section h2 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 20px; }
+        .combo-price { font-size: 4.5rem; font-weight: 800; color: var(--red-offer); margin: 25px 0; text-shadow: 2px 2px 5px rgba(0,0,0,0.2); }
+        .combo-note { font-size: 1.2rem; opacity: 0.9; }
+        .btn-call {
+            display: inline-block; padding: 18px 50px; background: var(--accent);
+            color: white; text-decoration: none; border-radius: 50px;
+            font-weight: 700; font-size: 1.25rem; margin-top: 40px; transition: 0.4s;
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.4);
+        }
+        .btn-call:hover { transform: translateY(-5px) scale(1.02); background: #3d8b40; }
+
+        /* Suggestions */
+        .suggestions { padding: 60px 10%; text-align: center; background: var(--bg-light); }
+        .suggestions h2 { font-family: 'Playfair Display', serif; color: var(--primary); font-size: 2.2rem; margin-bottom: 40px; }
+        .suggestion-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .suggestion-item {
+            flex-basis: 300px; background: white; padding: 25px; border-radius: 15px;
+            box-shadow: 0 5px 15px var(--shadow); text-align: left;
+            border-left: 5px solid var(--primary); transition: 0.3s;
+        }
+        .suggestion-item:hover { transform: translateY(-5px); }
+        .suggestion-item h3 { color: var(--primary); margin-bottom: 10px; }
+
+        /* Floating images for visual appeal (using emojis as placeholders) */
+        .floating-veg {
+            position: absolute; font-size: 60px; opacity: 0.7;
+            animation: float 5s infinite ease-in-out;
+            z-index: 0;
+        }
+        .f1 { top: 10%; left: 5%; animation-delay: 0s; }
+        .f2 { top: 30%; right: 10%; animation-delay: 1.5s; }
+        .f3 { bottom: 15%; left: 20%; animation-delay: 3s; }
+         footer { text-align: center; padding: 40px; color: #777; font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+    <div class="logo-wrapper">
+        <div class="logo-circle">
+            <img src="logo.jpg" alt="Easy Diets Logo">
+        </div>
+        <div class="logo-text">
+            EASY <span>DIETS</span>
+        </div>
+    </div>
+    
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="premium.html">Subscriptions</a></li>
+            <li><a href="#ordernow">Order Now</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="reveal">
+            <h1>Our Daily Menu</h1>
+            <p>Select your perfect meal box – designed for convenience, optimized for health, and delivered fresh to your door.</p>
+        </div>
+    </header>
+
+    <section class="plans-grid">
+        <div class="plan-card reveal" style="animation-delay: 0.1s;">
+            <span class="food-icon pulsate">🍳</span>
+            <h2>Breakfast Box</h2>
+            <p class="tagline">Fuel your morning with high-protein meals.</p>
+            <p class="price-day"><strong>₹189 / Day</strong> (Offer Price)</p>
+            <p class="price-month">Monthly: ₹4,500</p>
+        </div>
+        <div class="plan-card reveal" style="animation-delay: 0.3s;">
+            <span class="food-icon pulsate">🍲</span>
+            <h2>Dinner Box</h2>
+            <p class="tagline">Light, calorie-counted meals for better sleep.</p>
+            <p class="price-day"><strong>₹230 / Day</strong> (Offer Price)</p>
+            <p class="price-month">Monthly: ₹5,500</p>
+        </div>
+    </section>
+
+    <section class="why-buy">
+        <h2 class="reveal">Why Choose Our Daily Meals?</h2>
+        <div class="reasons-grid">
+            <div class="reason-item reveal" style="animation-delay: 0.2s;">
+                <span class="icon float">⏱️</span>
+                <h3>Save Time</h3>
+                <p>No cooking, no shopping, no cleanup. Just heat and eat.</p>
+            </div>
+            <div class="reason-item reveal" style="animation-delay: 0.4s;">
+                <span class="icon float">🎯</span>
+                <h3>Achieve Goals</h3>
+                <p>Precisely portioned and balanced for your health objectives.</p>
+            </div>
+            <div class="reason-item reveal" style="animation-delay: 0.6s;">
+                <span class="icon float">🥗</span>
+                <h3>Fresh & Healthy</h3>
+                <p>Prepared daily with the freshest, locally sourced ingredients.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="combo-section reveal" id="ordernow">
+        <span class="floating-veg f1">🥦</span>
+        <span class="floating-veg f2">🥕</span>
+        <span class="floating-veg f3">🌶️</span>
+        <h2>The Mega Combo</h2>
+        <p class="combo-note">Get both Breakfast & Dinner boxes and maximize your savings!</p>
+        <p class="combo-price pulsate">₹9,999 / Month</p>
+        <p class="combo-note">Experience full-day nutrition, stress-free.</p>
+        <a href="tel:+919535508209" class="btn-call">📞 Order My Combo Now</a>
+    </div>
+
+    <section class="suggestions">
+        <h2 class="reveal">Suggestions to Boost Your Wellness</h2>
+        <div class="suggestion-list">
+            <div class="suggestion-item reveal" style="animation-delay: 0.1s;">
+                <h3>Hydration 💧</h3>
+                <p>Drink at least 8 glasses of water daily for optimal metabolism and energy.</p>
+            </div>
+            <div class="suggestion-item reveal" style="animation-delay: 0.2s;">
+                <h3>Mindful Eating 🧘‍♀️</h3>
+                <p>Eat slowly, savor each bite, and listen to your body's hunger cues.</p>
+            </div>
+            <div class="suggestion-item reveal" style="animation-delay: 0.3s;">
+                <h3>Stay Active 🏃‍♂️</h3>
+                <p>Even 30 minutes of walking can significantly improve your health.</p>
+            </div>
+        </div>
+        
+    </section>
+    <footer>
+        <p>&copy; 2026 Easy Diets Hubli. Freshness Guaranteed.</p>
+    </footer>
+    <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const links = document.querySelectorAll('.nav-links li a');
+
+    // Toggle menu open/close
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+    });
+
+    // Close menu when any link is clicked
+    links.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    });
+</script>
+</body>
+</html>
