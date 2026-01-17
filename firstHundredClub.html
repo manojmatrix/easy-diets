@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First 100 Club | Exclusive 25% Discount</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .discount-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 1.1rem; margin-right: 10px; }
+        .new-price { color: #e91e63; font-size: 1.8rem; font-weight: bold; }
+        .form-section { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 600px; margin: 0 auto; }
+        .form-group { margin-bottom: 20px; text-align: left; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
+        .submit-btn { background: #4caf50; color: white; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1.2rem; cursor: pointer; width: 100%; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+    <div class="logo-wrapper">
+        <div class="logo-circle">
+            <img src="logo.jpg" alt="Easy Diets Logo">
+        </div>
+        <div class="logo-text">
+            EASY <span>DIETS</span>
+        </div>
+    </div>
+    
+    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="daily-plans.html">Subscriptions</a></li>
+    </ul>
+</nav>
+    <section class="section">
+        <h1 class="section-title">Club 100 Exclusive Plans</h1>
+        
+        <div class="discount-grid">
+            <div class="card">
+                <h3>Standard</h3>
+                <div><span class="old-price">₹2,499</span><span class="new-price">₹1,874</span></div>
+                <p>Beginner Kit (3 CP)</p>
+            </div>
+            <div class="card highlight">
+                <div class="badge">Best Value</div>
+                <h3>Premium</h3>
+                <div><span class="old-price">₹3,499</span><span class="new-price">₹2,624</span></div>
+                <p>Advanced Kit (5 CP)</p>
+            </div>
+            <div class="card">
+                <h3>Luxury</h3>
+                <div><span class="old-price">₹4,999</span><span class="new-price">₹3,749</span></div>
+                <p>Complete Kit (8 CP)</p>
+            </div>
+        </div>
+
+        <div class="form-section">
+    <h2 style="text-align: center; color: #2d5a27;">VIP Registration</h2>
+    <p style="text-align: center; font-size: 0.9rem; margin-bottom: 20px;">Register below and pay via <strong>PhonePe</strong> to avoid extra taxes!</p>
+
+    <div style="background: #673ab7; color: white; padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 25px;">
+        <p style="margin: 0; font-size: 0.8rem; opacity: 0.9;">PhonePe Number</p>
+        <h3 style="margin: 5px 0;">8867314347</h3>
+        <p style="margin: 0; font-size: 0.7rem;">Name: [Your Name/Easy Diets]</p>
+    </div>
+
+    <form id="registrationForm">
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone" required>
+        </div>
+        <div class="form-group">
+            <label>Plan Selected</label>
+            <select id="plan" onchange="updatePrice()" required>
+                <option value="Standard" data-price="1874">Standard - ₹1,874</option>
+                <option value="Premium" data-price="2624">Premium - ₹2,624</option>
+                <option value="Luxury" data-price="3749">Luxury - ₹3,749</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Full Delivery Address</label>
+            <textarea id="address" rows="3" required></textarea>
+        </div>
+
+        <div style="text-align: center; margin: 20px 0; border: 2px dashed #673ab7; padding: 15px; border-radius: 10px;">
+            <p>Total to Pay: <strong id="displayPrice" style="font-size: 1.4rem;">₹1,874</strong></p>
+            <small>Pay on PhonePe then click "Submit via WhatsApp"</small>
+        </div>
+
+        <button type="submit" class="submit-btn" style="background-color: #673ab7;">Submit & Send Screenshot</button>
+    </form>
+</div>
+    </section>
+
+    <script>
+       function updatePrice() {
+    const select = document.getElementById('plan');
+    const price = select.options[select.selectedIndex].getAttribute('data-price');
+    document.getElementById('displayPrice').innerText = '₹' + price;
+}
+
+document.getElementById('registrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const plan = document.getElementById('plan').value;
+    const address = document.getElementById('address').value;
+    const price = document.getElementById('displayPrice').innerText;
+
+    // --- STEP A: SEND TO GOOGLE SHEETS ---
+    // You need your Google Form "Entry IDs" to make this work automatically.
+    // For now, we focus on the WhatsApp redirect which is most important for UPI.
+    
+    // --- STEP B: OPEN WHATSAPP ---
+    const whatsappNumber = "918867314347";
+    const message = `*NEW CLUB 100 REGISTRATION*%0A%0A` +
+                    `*Name:* ${name}%0A` +
+                    `*Phone:* ${phone}%0A` +
+                    `*Plan:* ${plan}%0A` +
+                    `*Address:* ${address}%0A` +
+                    `*Amount Paid:* ${price}%0A%0A` +
+                    `_Attached is my PhonePe payment screenshot._`;
+
+    const wpLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+    
+    // Celebratory pause before redirect
+    alert("Details Saved! Now redirecting to WhatsApp. Please attach your PhonePe screenshot there.");
+    window.location.href = wpLink;
+});
+    </script>
+</body>
+</html>
