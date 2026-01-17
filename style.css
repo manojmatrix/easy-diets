@@ -453,6 +453,8 @@ img {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+
+/* bmi section  */
 /* BMI Calculator Styling */
 .bmi-container {
     max-width: 600px;
@@ -523,6 +525,274 @@ img {
 .text-danger {
     color: #d9534f !important; /* A clear, professional red */
 }
+
+/* marketing card */
+/* VIP Card Styling */
+.offer-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    background: #fdfdfd;
+}
+
+.vip-card {
+    max-width: 500px;
+    width: 100%;
+    background: linear-gradient(145deg, #ffffff, #f0f0f0);
+    border: 3px solid #4caf50;
+    border-radius: 25px;
+    padding: 40px 30px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(76, 175, 80, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.vip-card:hover {
+    transform: translateY(-5px);
+}
+
+.exclusive-badge {
+    background: #ff5722;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+.vip-card h2 {
+    color: #2d5a27;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.counter-box {
+    margin: 25px 0;
+    background: #e8f5e9;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.slots-text {
+    font-weight: bold;
+    color: #2d5a27;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.progress-bar {
+    height: 10px;
+    background: #c8e6c9;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 42%; /* Adjust based on slots left */
+    height: 100%;
+    background: #4caf50;
+}
+
+.claim-btn {
+    display: block;
+    background: #4caf50;
+    color: white;
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    transition: all 0.3s ease;
+}
+
+.claim-btn:hover {
+    background: #2d5a27;
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+.sub-text {
+    font-size: 0.8rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .vip-card {
+        padding: 30px 20px;
+    }
+    .vip-card h2 {
+        font-size: 1.5rem;
+    }
+}
+/* offer section */
+/* Scrolling Ticker */
+.loyalty-ticker {
+    background: #2d5a27;
+    color: white;
+    padding: 12px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 3px solid #8bc34a;
+}
+
+.ticker-content {
+    display: inline-block;
+    animation: scroll-left 20s linear infinite;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 40px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Loyalty Card Styling */
+.loyalty-card-section {
+    padding: 30px 10% 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.loyalty-card {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    padding: 25px;
+    max-width: 450px;
+    width: 100%;
+    border: 2px dashed #4caf50;
+    text-align: center;
+}
+
+.loyalty-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.ig-icon { width: 25px; }
+
+.stamps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stamp {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: bold;
+    color: #ccc;
+    transition: 0.3s;
+}
+
+.stamp.active {
+    background: #4caf50;
+    color: white;
+    border-color: #2d5a27;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.stamp.free {
+    background: #ffeb3b;
+    color: #2d5a27;
+    border: 2px solid #2d5a27;
+    font-size: 0.7rem;
+}
+
+.loyalty-instruction {
+    font-size: 0.85rem;
+    color: #555;
+    line-height: 1.4;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 480px) {
+    .stamps-grid { gap: 10px; }
+    .stamp { width: 50px; height: 50px; }
+}
+
+/* explore more options section */
+.explore-offers-wrapper {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.explore-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #2d5a27; /* Your Dark Green */
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.explore-link:hover {
+    color: #4caf50; /* Your Brand Green */
+}
+
+.arrow-icon {
+    margin-left: 8px;
+    font-size: 1.2rem;
+    color: #4caf50;
+    transition: transform 0.3s ease;
+}
+
+.explore-link:hover .arrow-icon {
+    transform: translateX(8px); /* Moves the arrow to the right */
+}
+
+/* For Mobile: Ensure it's easy to tap */
+@media (max-width: 600px) {
+    .explore-link {
+        font-size: 0.95rem;
+        padding: 5px 0;
+    }
+}
+
 
 
 
