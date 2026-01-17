@@ -453,4 +453,77 @@ img {
         transform: translateY(-8px) rotate(-45deg);
     }
 }
+/* BMI Calculator Styling */
+.bmi-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.bmi-card {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+    border: 2px solid #f1f1f1;
+}
+
+.input-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #2d5a27;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: #4caf50;
+}
+
+.bmi-result-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    border-left: 5px solid #4caf50;
+    animation: fadeIn 0.5s ease;
+}
+
+.bmi-status {
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #2d5a27;
+}
+
+.bmi-advice {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+/* Color for Overweight/Obese status */
+.text-danger {
+    color: #d9534f !important; /* A clear, professional red */
+}
+
+
+
 
