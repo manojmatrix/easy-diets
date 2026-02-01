@@ -792,6 +792,39 @@ img {
         padding: 5px 0;
     }
 }
+/* footer  */
+#contact {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-fssai {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-fssai img {
+    height: 40px; /* Keeps the logo neat */
+    width: auto;
+    background: white; /* Helpful if your footer background is dark */
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.footer-fssai p {
+    font-size: 0.9rem;
+    margin: 0;
+}
 
 
 
