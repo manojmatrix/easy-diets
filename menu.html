@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu | Easy Diets Hubli</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2e7d32;
+            --secondary: #81c784;
+            --accent: #ffa000;
+            --dark: #1b5e20;
+            --light: #f1f8e9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            background-color: #fff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .menu-hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .quote-box {
+            height: 50px;
+            margin-top: 10px;
+        }
+
+        .animate-flicker {
+            animation: fadeIn 2s infinite alternate;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--secondary);
+        }
+
+        /* Tab System */
+        .tab-wrapper {
+            max-width: 1100px;
+            margin: -40px auto 40px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .tab-link {
+            padding: 12px 30px;
+            border: 2px solid var(--primary);
+            background: none;
+            color: var(--primary);
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .tab-link.active, .tab-link:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .tab-content { display: none; animation: slideUp 0.5s ease; }
+        .tab-content.active { display: block; }
+
+        /* Table Styling */
+        .table-container { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th { background: var(--light); color: var(--dark); padding: 15px; text-align: left; border-bottom: 3px solid var(--primary); }
+        td { padding: 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        tr:hover { background-color: #fafafa; }
+
+        .calorie-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 5px;
+            font-size: 0.85rem;
+            margin-top: 10px;
+        }
+
+        /* Benefits Grid */
+        .benefits-section {
+            background: var(--light);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
+            margin: 30px auto 0;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s;
+        }
+
+        .benefit-card:hover { transform: translateY(-10px); }
+        .benefit-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+
+        @keyframes fadeIn { from { opacity: 0.3; } to { opacity: 1; } }
+        @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        @media (max-width: 600px) {
+            .tab-link { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <section class="menu-hero">
+        <h1>Easy Diets: Weekly Health Boxes</h1>
+        <div class="quote-box">
+            <p id="quote" class="animate-flicker">"Eat clean, feel incredible."</p>
+        </div>
+    </section>
+
+    <div class="tab-wrapper">
+        <div class="tab-nav">
+            <button class="tab-link active" onclick="showTab(event, 'standard')">Standard Plan</button>
+            <button class="tab-link" onclick="showTab(event, 'premium')">Premium Plan</button>
+            <button class="tab-link" onclick="showTab(event, 'luxury')">Luxury Plan</button>
+        </div>
+
+        <div id="standard" class="tab-content active">
+            <h2>Standard Weekly Plan <span class="calorie-badge">~350-400 kcal</span></h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Day</th><th>Fruits</th><th>Vegetables</th><th>Sprouts</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mon</td><td>Apple, Guava</td><td>Spinach, Radish</td><td>Kala Channa</td></tr>
+                        <tr><td>Tue</td><td>Papaya, Kiwi</td><td>Cauliflower, Lettuce</td><td>Kabuli Channa</td></tr>
+                        <tr><td>Wed</td><td>Banana, Avocado</td><td>Carrot, Cabbage</td><td>Green Moong</td></tr>
+                        <tr><td>Thu</td><td>Watermelon, Muskmelon</td><td>Beetroot, Cucumber</td><td>Matki</td></tr>
+                        <tr><td>Fri</td><td>Orange, Chikoo</td><td>Broccoli, Capsicum</td><td>Boiled Peanuts</td></tr>
+                        <tr><td>Sat</td><td>Grapes, Dragon Fruit</td><td>Mushroom, French Beans</td><td>Sweet Corn</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="premium" class="tab-content">
+            <h2>Premium Weekly Plan <span class="calorie-badge">~450-500 kcal</span></h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Day</th><th>Fruits</th><th>Vegetables</th><th>Sprouts / Add-ons</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mon</td><td>Apple, Guava, Muskmelon</td><td>Spinach, Radish</td><td>Kala Channa, Green Peas</td></tr>
+                        <tr><td>Tue</td><td>Papaya, Kiwi, Strawberry</td><td>Cauliflower, Lettuce</td><td>Kabuli Channa, Roasted Peanut</td></tr>
+                        <tr><td>Wed</td><td>Banana, Avocado, Blueberry</td><td>Carrot, Cabbage</td><td>Green Moong, Matki Moong</td></tr>
+                        <tr><td>Thu</td><td>Watermelon, Pomegranate, Pineapple</td><td>Beetroot + Cucumber</td><td>Soybean Sprout, Boiled Peanut</td></tr>
+                        <tr><td>Fri</td><td>Orange, Chickoo, Custard Apple</td><td>Broccoli, Capsicum</td><td>Matki Moong, Soaked Peanut</td></tr>
+                        <tr><td>Sat</td><td>Dragon Fruit, Grapes, Pear</td><td>Mushroom, French Beans</td><td>Sweet Corn, Sweet Potato</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="luxury" class="tab-content">
+            <h2>Luxury Weekly Plan <span class="calorie-badge">~600-700 kcal</span></h2>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr><th>Day</th><th>Fruits</th><th>Veggies</th><th>Sprouts</th><th>Dry Fruits</th><th>Protein</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Mon</td><td>Apple, Muskmelon</td><td>Spinach, Radish</td><td>Kala Channa</td><td>Almond, Cashew</td><td>Egg</td></tr>
+                        <tr><td>Tue</td><td>Strawberry, Papaya</td><td>Cauliflower, Lettuce</td><td>Kabuli Channa</td><td>Pistachio, Peanuts</td><td>Egg</td></tr>
+                        <tr><td>Wed</td><td>Banana, Avocado</td><td>Carrot, Cabbage</td><td>Green Moong</td><td>Walnut, Kishmish</td><td>Egg</td></tr>
+                        <tr><td>Thu</td><td>Orange, Custard Apple</td><td>Broccoli, Capsicum</td><td>Matki Moong</td><td>Sunflower, Sesame</td><td>Egg</td></tr>
+                        <tr><td>Fri</td><td>Watermelon, Pineapple</td><td>Beetroot, Cucumber</td><td>Peanut</td><td>Dates, Pumpkin</td><td>Egg</td></tr>
+                        <tr><td>Sat</td><td>Dragon Fruit, Grapes</td><td>Mushroom, Beans</td><td>Sweet Corn</td><td>Chia seeds, Flaxseed</td><td>Egg</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <section class="benefits-section">
+        <h3>Why Choose Our Boxes?</h3>
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <i class="fas fa-leaf"></i>
+                <h4>Fiber Rich</h4>
+                <p>High fiber from items like <strong>Radish, Beetroot, and Avocado</strong> ensures smooth digestion.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-dumbbell"></i>
+                <h4>High Protein</h4>
+                <p>Sprouts (Moong, Kala Channa) and <strong>Eggs</strong> in our Luxury plan support muscle health.</p>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-brain"></i>
+                <h4>Omega-3 Boost</h4>
+                <p>Our Luxury plan includes <strong>Walnuts, Chia, and Flaxseeds</strong> for brain health.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showTab(evt, planName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(planName).style.display = "block";
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Quote Rotation
+        const quotes = [
+            "\"Your food is your fuel. Choose wisely.\"",
+            "\"Easy Diets Hubli: Health in every box.\"",
+            "\"Fueling Hubli with Vitamin-rich goodness.\"",
+            "\"Small changes, Big results.\""
+        ];
+        let qIdx = 0;
+        setInterval(() => {
+            qIdx = (qIdx + 1) % quotes.length;
+            document.getElementById('quote').innerText = quotes[qIdx];
+        }, 4000);
+    </script>
+</body>
+</html>
